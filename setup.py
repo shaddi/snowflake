@@ -8,7 +8,7 @@ class snowflake_install_scripts(install_scripts):
         os.system('snowflake -m') # generate the initial snowflake ID
 
 setup(name="snowflake",
-      version="0.0.2",
+      version="0.0.3",
       description="Simple persistent unique IDs.",
       author="Shaddi Hasan",
       author_email="shaddi@cs.berkeley.edu",
