@@ -17,22 +17,22 @@ snowflake_file = args.sn_file
 
 try:
     if args.force_new:
-        print "WARNING! Forcing me to create new snowflake ID. Old snowflake ID was '%s'" % snowflake.snowflake(snowflake_file)
+        print("WARNING! Forcing me to create new snowflake ID. Old snowflake ID was '%s'" % snowflake.snowflake(snowflake_file))
         snowflake._write_new_id(snowflake_file)
     if args.make_snowflake:
             snowflake.make_snowflake(snowflake_file)
 
     id_ = snowflake.snowflake(snowflake_file)
     if id_ is None:
-        print "Couldn't find a snowflake ID in '%s'. Try running with the -m option to make one." % snowflake_file
+        print("Couldn't find a snowflake ID in '%s'. Try running with the -m option to make one." % snowflake_file)
         exit(2)
     else:
-        print id_
+        print(id_)
         exit(0)
 
-except IOError, e:
+except IOError as e:
     if e.errno == 13: # permission denied
-        print "Permission denied when accessing '%s'. If you're making the snowflake for the first time for the system, try running this as root." % snowflake_file
+        print("Permission denied when accessing '%s'. If you're making the snowflake for the first time for the system, try running this as root." % snowflake_file)
         exit(1)
     else:
         raise e

@@ -8,7 +8,7 @@ class snowflake_install_scripts(install_scripts):
         os.system('snowflake -m') # generate the initial snowflake ID
 
 setup(name="snowflake",
-      version="0.0.2",
+      version="0.0.3",
       description="Simple persistent unique IDs.",
       author="Shaddi Hasan",
       author_email="shaddi@cs.berkeley.edu",
@@ -22,6 +22,7 @@ setup(name="snowflake",
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Software Development :: Libraries',
         'Topic :: Utilities',],
       keywords='unique id uuid persistent identification',
