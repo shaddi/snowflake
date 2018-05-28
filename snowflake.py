@@ -12,17 +12,14 @@ def snowflake(snowflake_file=SNOWFLAKE_FILE):
     things besides a snowflake ID and raise a ValueError.
     """
     res = None
-    try:
-        f = open(snowflake_file, "r")
-        for line in f:
-            if re.match("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", line.strip()) is not None:
-                res = line.strip()
-            else:
-                # this is not a snowflake file!
-                raise ValueError("The specified file doesn't appear to contain a snowflake.")
-        f.close()
-    except IOError as e:
-        pass # if we can't read the file for some reason, we assume there is no file
+    f = open(snowflake_file, "r")
+    for line in f:
+        if re.match("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", line.strip()) is not None:
+            res = line.strip()
+        else:
+            # this is not a snowflake file!
+            raise ValueError("The specified file doesn't appear to contain a snowflake.")
+    f.close()
     return res
 
 def _write_new_id(snowflake_file=SNOWFLAKE_FILE):
@@ -39,6 +36,14 @@ def make_snowflake(snowflake_file=SNOWFLAKE_FILE):
     """
     If a snowflake ID exists, returns it. Otherwise, creates one.
     """
-    if not snowflake(snowflake_file):
+    try:
+        current = snowflake(snowflake_file)
+    except IOError as e:
+        if e.errno == 2:
+           current = None # if no file exists, we'll create it.
+        else:
+            raise # but if something else happens, fail
+
+    if not current:
         _write_new_id(snowflake_file)
     return snowflake(snowflake_file)
