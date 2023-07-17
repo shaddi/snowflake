@@ -7,14 +7,14 @@ class snowflake_install_scripts(install_scripts):
         install_scripts.run(self)
         os.system('snowflake -m') # generate the initial snowflake ID
 
-setup(name="snowflake",
-      version="0.1.0",
+setup(name="snowflake_id",
+      version="0.2.0",
       description="Simple persistent unique IDs.",
       author="Shaddi Hasan",
-      author_email="shaddi@cs.berkeley.edu",
+      author_email="shaddih@gmail.com",
       url="https://github.com/shaddi/snowflake",
       license='bsd',
-      py_modules=['snowflake'],
+      py_modules=['snowflake_id'],
       scripts=['snowflake'],
       cmdclass={"install_scripts": snowflake_install_scripts},
       classifiers=[
