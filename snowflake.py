@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 import re
 import uuid
+import warnings
+
+warnings.warn("This package has been renamed to snowflake_uuid and will be removed shortly. Please update immediately.", DeprecationWarning, stacklevel=2)
 
 SNOWFLAKE_FILE = '/etc/snowflake'
 

@@ -8,10 +8,11 @@ class snowflake_install_scripts(install_scripts):
         os.system('snowflake -m') # generate the initial snowflake ID
 
 setup(name="snowflake",
-      version="0.1.0",
+      version="0.0.4",
       description="Simple persistent unique IDs.",
+      long_description="This package has been renamed to snowflake_uuid, and will be removed soon. Please use https://pypi.org/project/snowflake-uuid instead of this one!",
       author="Shaddi Hasan",
-      author_email="shaddi@cs.berkeley.edu",
+      author_email="shaddih@gmail.com",
       url="https://github.com/shaddi/snowflake",
       license='bsd',
       py_modules=['snowflake'],
@@ -19,7 +20,7 @@ setup(name="snowflake",
       cmdclass={"install_scripts": snowflake_install_scripts},
       classifiers=[
         'Operating System :: POSIX',
-        'Development Status :: 4 - Beta',
+        'Development Status :: 7 - Inactive',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
