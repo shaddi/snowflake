@@ -7,9 +7,13 @@ class snowflake_install_scripts(install_scripts):
         install_scripts.run(self)
         os.system('snowflake -m') # generate the initial snowflake ID
 
+with open("README.md", 'r') as f:
+    long_desc = f.read()
+
 setup(name="snowflake_id",
-      version="0.2.0",
+      version="0.1.0",
       description="Simple persistent unique IDs.",
+      long_description=long_desc,
       author="Shaddi Hasan",
       author_email="shaddih@gmail.com",
       url="https://github.com/shaddi/snowflake",
