@@ -26,11 +26,11 @@ def _write_new_id(snowflake_file=SNOWFLAKE_FILE):
     """
     Unsafe! This erases the existing ID.
     """
-    snowflake_id = str(uuid.uuid4())
+    snowflake_uuid = str(uuid.uuid4())
     f = open(snowflake_file, "w")
-    f.write(snowflake_id + "\n")
+    f.write(snowflake_uuid + "\n")
     f.close()
-    return snowflake_id
+    return snowflake_uuid
 
 def make_snowflake(snowflake_file=SNOWFLAKE_FILE):
     """

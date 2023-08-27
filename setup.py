@@ -10,7 +10,7 @@ class snowflake_install_scripts(install_scripts):
 with open("README.md", 'r') as f:
     long_desc = f.read()
 
-setup(name="snowflake_id",
+setup(name="snowflake_uuid",
       version="0.1.0",
       description="Simple persistent unique IDs.",
       long_description=long_desc,
@@ -18,7 +18,7 @@ setup(name="snowflake_id",
       author_email="shaddih@gmail.com",
       url="https://github.com/shaddi/snowflake",
       license='bsd',
-      py_modules=['snowflake_id'],
+      py_modules=['snowflake_uuid'],
       scripts=['snowflake'],
       cmdclass={"install_scripts": snowflake_install_scripts},
       classifiers=[
